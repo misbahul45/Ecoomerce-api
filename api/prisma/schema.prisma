@@ -9,15 +9,15 @@ datasource db {
 }
 
 model Product {
-  id          String    @id @default(cuid())
-  name        String
-  price       Float
-  description String
-  category_id String?   @unique
-  category    Category? @relation(fields: [category_id], references: [id])
-
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  id              String    @id @default(cuid())
+  name            String
+  price           Float
+  description     String
+  category_id     String?   @unique
+  category        Category? @relation(fields: [category_id], references: [id])
+  products_images Image[]
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @updatedAt
 
   @@map("products")
 }
@@ -32,4 +32,16 @@ model Category {
   updated_at DateTime @updatedAt
 
   @@map("products_categories")
+}
+
+model Image {
+  id         String  @id @default(cuid())
+  product    Product @relation(fields: [product_id], references: [id])
+  product_id String
+  url        String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("products_images")
 }
