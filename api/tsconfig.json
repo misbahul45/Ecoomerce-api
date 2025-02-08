@@ -4,8 +4,8 @@
     "module": "commonjs",
     "lib": ["es6"],
     "allowJs": true,
-    "outDir": "api/dist",
-    "rootDir": "api/src",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
@@ -13,6 +13,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
     },
-    "include": ["api/src/**/*"],
-    "exclude": ["node_modules", "api/dist"]
+    "include": ["./src/**/*"],
+    "exclude": ["node_modules", "dist"]
     }
